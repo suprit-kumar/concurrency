@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="An interactive, offline masterclass on concurrency, async programming, message queues, Kafka, RabbitMQ and event-driven architecture.">
+  <title>Concurrency &amp; Messaging Masterclass</title>
+  <script>
+    /* Apply the saved theme before first paint to avoid a flash. Storage may be blocked, so guard it. */
+    (function () {
+      try {
+        var t = JSON.parse(window.localStorage.getItem('cm.theme'));
+        if (t === 'light' || t === 'dark') { document.documentElement.setAttribute('data-theme', t); }
+      } catch (e) { /* default dark */ }
+    })();
+  </script>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <a class="skip-link" href="#topics">Skip to content</a>
+  <div class="scrollbar" id="scrollbar" aria-hidden="true"><i></i></div>
+  <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+  <noscript><p style="padding:24px">This course is interactive and needs JavaScript enabled. Nothing is sent over the network; everything runs in your browser.</p></noscript>
+
+  <div class="app">
+    <aside class="sidebar" id="sidebar" aria-label="Course navigation">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0a0c13" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 6h4l4 6M7 18h4l4-6"/></svg>
+        </span>
+        <span><strong>Concurrency &amp; Messaging</strong><small>Interactive masterclass</small></span>
+      </a>
+
+      <div class="progress-card">
+        <div class="ring" id="ring" role="img" aria-label="Course progress">
+          <svg viewBox="0 0 56 56" aria-hidden="true">
+            <circle class="track" cx="28" cy="28" r="24" fill="none" stroke-width="6"/>
+            <circle class="bar" id="ring-bar" cx="28" cy="28" r="24" fill="none" stroke-width="6"/>
+          </svg>
+          <span class="label" id="ring-label">0/6</span>
+        </div>
+        <p id="ring-text"></p>
+      </div>
+
+      <div>
+        <div class="nav-label" id="nav-label">Curriculum</div>
+        <ul class="nav" id="nav" aria-labelledby="nav-label"></ul>
+      </div>
+
+      <div class="sidebar-foot">
+        <button class="btn btn-sm" type="button" data-open-glossary>Glossary <kbd>Ctrl K</kbd></button>
+        <button class="btn btn-sm btn-ghost" type="button" id="reset-progress">Reset progress</button>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <button class="btn btn-icon menu-btn" id="menu-btn" type="button" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false">&#9776;</button>
+        <span class="brand-mobile">Concurrency &amp; Messaging</span>
+        <span class="spacer"></span>
+        <button class="btn btn-sm" type="button" data-open-glossary aria-label="Open glossary (Control or Command plus K)">Search glossary <kbd>Ctrl K</kbd></button>
+        <button class="btn btn-icon" id="theme-btn" type="button" aria-pressed="false" aria-label="Switch to light theme">&#9728;</button>
+      </header>
+
+      <main id="main-content">
+        <section class="hero" id="top" aria-labelledby="hero-title">
+          <canvas id="hero-canvas" aria-hidden="true"></canvas>
+          <div class="container">
+            <div class="hero-inner">
+              <span class="eyebrow" style="--accent: var(--accent-async)">Beginner to advanced &middot; fully offline</span>
+              <h1 id="hero-title">Learn how modern systems do many things at once</h1>
+              <p class="lead">Threads, async code, message queues, Kafka, RabbitMQ and event-driven design, taught with plain-English analogies and simulations you can break on purpose.</p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#concurrency" style="--btn-accent: var(--accent-async)">Start learning</a>
+                <button class="btn" type="button" data-open-glossary>Open glossary</button>
+              </div>
+              <div class="hero-chips" aria-label="Course topics">
+                <span class="chip">Concurrency</span>
+                <span class="chip">Async</span>
+                <span class="chip">Queues</span>
+                <span class="chip">Kafka &amp; RabbitMQ</span>
+                <span class="chip">Event-driven</span>
+                <span class="chip">Capstone</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div id="topics"></div>
+
+        <footer class="site-footer">
+          <div class="container">
+            <p>No network, no tracking, no dependencies. Progress is saved in this browser only<span id="storage-note"></span>.</p>
+          </div>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <!-- Classic scripts (no modules) so the site works from file:// -->
+  <script src="js/engine.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/data/glossary.js"></script>
+  <script src="js/data/quizzes.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/topics/t1-concurrency.js"></script>
+  <script src="js/topics/t2-async.js"></script>
+  <script src="js/topics/t3-queues.js"></script>
+  <script src="js/topics/t4-kafka-rabbit.js"></script>
+  <script src="js/topics/t5-eda.js"></script>
+  <script src="js/topics/t6-capstone.js"></script>
+</body>
+</html>
+
+
